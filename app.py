@@ -154,10 +154,13 @@ def run_dynamic_scenario(df_projects, available_budgets, scenario_def, objective
                         non_selected_projects.append({
                             "idx": idx,
                             "NomProjet": nom_projet or "Projet sans nom",
-                            "RC": rc,
+                            "RCSaving": rc,
                             "Weight": weight,
-                            "ROI": roi
+                            "ROI": roi,
+                            "BudgetRequest": {bc: float(row[bc]) for bc in available_budgets},
+                            "Obligatoire": bool(row.get("Obligatoire", False))
                         })
+
 
 
 
